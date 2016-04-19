@@ -1,20 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-apollo';
 
-const App = ({ data }) => {
-  console.log(data);
+const App = ({ testString }) => {
+  console.log(testString);
   return (
     <div>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
-      <button onClick={data.refetch}>Refetch!</button>
+      <pre>{JSON.stringify(testString, null, 2)}</pre>
+      <button onClick={testString.refetch}>Refetch!</button>
     </div>
   )
 }
 
 const AppWithData = connect({
-  mapQueriesToProps({ ownProps, state }) {
+  mapQueriesToProps() {
     return {
-      data: {
+      testString: {
         query: `
           {
             testString
