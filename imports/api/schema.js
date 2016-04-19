@@ -1,3 +1,5 @@
+import { Random } from 'meteor/random';
+
 export const schema = [`
 type Email {
   address: String
@@ -6,10 +8,11 @@ type Email {
 
 type User {
   emails: [Email]
+  randomString: String
 }
 
 type Query {
-  currentUser: User
+  user(id: String!): User
 }
 
 schema {
@@ -19,11 +22,15 @@ schema {
 
 export const resolvers = {
   Query: {
-    currentUser(root, args, context) {
-      return context.user;
+    user(root, args, context) {
+      // Only return the current user, for security
+      if (context.user._id === args.id) {
+        return context.user;
+      }
     },
   },
   User: {
     emails: ({emails}) => emails,
+    randomString: () => Random.id(),
   }
 }

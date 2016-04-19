@@ -13,6 +13,7 @@
     "invariant": "^2.2.1",
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.0.1",
+    "react-addons-pure-render-mixin": "^15.0.1",
     "react-apollo": "^0.1.1",
     "react-dom": "^15.0.1"
   }
