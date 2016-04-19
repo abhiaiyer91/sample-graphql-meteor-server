@@ -1,22 +1,15 @@
-import { Template } from 'meteor/templating';
-import { ReactiveVar } from 'meteor/reactive-var';
+import { Meteor } from 'meteor/meteor';
+import { render } from 'react-dom';
+import React from 'react';
+import ApolloClient from 'apollo-client';
+import { Provider } from 'react-apollo';
 
-import './main.html';
+import App from '/imports/ui/App';
 
-Template.hello.onCreated(function helloOnCreated() {
-  // counter starts at 0
-  this.counter = new ReactiveVar(0);
-});
+const client = new ApolloClient();
 
-Template.hello.helpers({
-  counter() {
-    return Template.instance().counter.get();
-  },
-});
-
-Template.hello.events({
-  'click button'(event, instance) {
-    // increment the counter when button is clicked
-    instance.counter.set(instance.counter.get() + 1);
-  },
+Meteor.startup(() => {
+  render(<Provider client={client}>
+    <App />
+  </Provider>, document.getElementById('app'));
 });

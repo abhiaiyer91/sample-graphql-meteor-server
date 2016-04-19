@@ -6,6 +6,10 @@
   },
   "dependencies": {
     "apollo-client": "^0.1.1",
+    "express": "^4.13.4",
+    "graphql": "^0.5.0",
+    "graphql-tools": "^0.3.8",
+    "http-proxy-middleware": "^0.14.0",
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.0.1",
     "react-apollo": "0.0.1",
