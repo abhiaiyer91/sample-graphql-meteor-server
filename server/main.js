@@ -17,7 +17,6 @@ graphQLServer.use('/graphql', apolloServer(async (req) => {
   if (req.headers.authorization) {
     const token = req.headers.authorization;
     check(token, String);
-    console.log('got token', token);
     const hashedToken = Accounts._hashLoginToken(token);
     user = await Meteor.users.findOne(
       {"services.resume.loginTokens.hashedToken": hashedToken});

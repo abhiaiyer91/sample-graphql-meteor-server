@@ -38,7 +38,6 @@ const AppWithData = connect({
           variables: {
             id: ownProps.userId,
           },
-          forceFetch: true,
         },
       };
     }
@@ -47,7 +46,6 @@ const AppWithData = connect({
 
 // This container brings in Tracker-enabled Meteor data
 const AppWithUserId = createContainer(() => {
-  console.log("running", Meteor.userId())
   return {
     userId: Meteor.userId() || false,
   };
