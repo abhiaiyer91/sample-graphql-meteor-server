@@ -4,7 +4,6 @@ import { Meteor } from 'meteor/meteor';
 import { createContainer } from 'meteor/react-meteor-data';
 
 const App = ({ userId, currentUser }) => {
-  console.log(userId, currentUser);
   return (
     <div>
       <LogInButtons />
@@ -47,7 +46,7 @@ const AppWithData = connect({
 // This container brings in Tracker-enabled Meteor data
 const AppWithUserId = createContainer(() => {
   return {
-    userId: Meteor.userId() || false,
+    userId: Meteor.userId(),
   };
 }, AppWithData);
 
