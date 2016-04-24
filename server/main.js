@@ -1,9 +1,7 @@
 import { Meteor } from 'meteor/meteor';
-import { Accounts } from 'meteor/accounts-base';
 import { apolloServer } from 'graphql-tools';
 import express from 'express';
 import proxyMiddleware from 'http-proxy-middleware';
-import { check } from 'meteor/check';
 import Schema from '/imports/data/schema';
 import resolvers from '/imports/data/resolvers';
 
