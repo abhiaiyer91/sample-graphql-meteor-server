@@ -4,14 +4,12 @@ import React from 'react';
 import ApolloClient, { createNetworkInterface } from 'apollo-client';
 import { Provider } from 'react-apollo';
 
-import AppWithData from '/imports/ui/App';
-
+import AppWithData from '/imports/App';
 
 const networkInterface = createNetworkInterface('/graphql');
 const client = new ApolloClient({
   networkInterface
 });
-
 
 Meteor.startup(() => {
   render(<Provider client={client}>
