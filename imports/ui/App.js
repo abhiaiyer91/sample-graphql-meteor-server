@@ -4,7 +4,6 @@ import { Meteor } from 'meteor/meteor';
 
 
 function App({ postsData }) {
-  console.log(postsData);
   const { result } = postsData;
   return (
     <div className="container-main">
