@@ -9,7 +9,7 @@ function App({ postsData }) {
     <div className="container-main">
       <h1> Fortune Cookie </h1>
       <div className="flex-grid">
-        {result && result.posts.map(({fortune}, index) => {
+        {result && result.mongoPosts.map(({fortune}, index) => {
           return (
             <div key={index} className="container-centered grit">
               <p>"{fortune}"</p>
@@ -29,7 +29,7 @@ const AppWithData = connect({
       postsData: {
         query: `
             {
-              posts {
+              mongoPosts {
                 title
                 content
                 fortune
