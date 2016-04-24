@@ -1,1 +1,35 @@
-/* CSS declarations go here */
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: rgba(222, 79, 79, 1);
+}
+
+.container-main {
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.container-centered {
+    padding: 1em 3em 1em 3em;
+    border: 10px solid #FFF;;
+    margin: 8px;
+}
+
+.grit {
+    -webkit-mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+    -moz-mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+    -o-mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+    mask-image: url(http://f.cl.ly/items/131E0X1b1i0X1s263R00/a.png);
+}
+
+p {
+    color: #FFF;
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(225, 225, 225, 0.35);
+}
+
+.flex-grid {
+    display: flex;
+    flex-flow: row wrap;
+}
