@@ -7,13 +7,14 @@ function App({ postsData }) {
   const { result } = postsData;
   return (
     <div className="container-main">
+      <h1> Fortune Cookie </h1>
       <div className="flex-grid">
         {result && result.posts.map(({fortune}, index) => {
           return (
             <div key={index} className="container-centered grit">
               <p>"{fortune}"</p>
             </div>
-          )
+          );
         })}
       </div>
     </div>

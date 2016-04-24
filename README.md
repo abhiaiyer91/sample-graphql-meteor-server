@@ -11,9 +11,23 @@ It has
 
 1. resolvers for Meteor Mongo apis
 2. resolver and connector for Fortune Cookie API. 
+3. resolver and connectors for MySQL, through Sequelize. Can easily plug in PG.
 
 Navigate to `localhost:3000` if you want to see some fortunes.
 
+
+### Quick MySQL install
+```
+brew install mysql
+npm install sequelize --save
+npm install mysql --save
+
+mysql
+
+>mysql CREATE DATABASE blog
+>mysql USE blog
+
+```
 
 ### Running it
 

@@ -1,12 +1,19 @@
 import { Authors, Posts } from '/imports/collection';
 import FortuneCookie from '/imports/data/fortune-connector';
+import { SQLAuthor, SQLPosts } from '/imports/data/sql-connector';
 
 const resolvers = {
   Query: {
-    author(root, args){
+    mongoAuthor(root, args){
       return Authors.findOne({
-        firstName: args.firstName,
-        lastName: args.lastName
+        $or: [
+          {
+            firstName: args.firstName
+          },
+          {
+            lastName: args.lastName
+          }
+        ]
       }, {
         fields: {
           'firstName': 1,
@@ -14,23 +21,37 @@ const resolvers = {
         }
       });
     },
-    posts(root, args) {
+    mongoPosts(root, args) {
       return Posts.find().fetch();
+    },
+    sqlAuthor(root, args) {
+      return SQLAuthor.find({where: args});
+    },
+    sqlPosts(root, args) {
+      return SQLPosts.findAll({});
     },
     getFortuneCookie(){
       return FortuneCookie.getOne();
     }
   },
   Author: {
-    posts(author){
-      return Posts.find({authorId: author._id}, {fields: {title: 1, content: 1}}).fetch();
+    mongoPosts(author){
+      return Posts.find({authorId: author._id}, {
+        fields: {
+          title: 1,
+          content: 1
+        }
+      }).fetch();
+    },
+    sqlPosts(author) {
+      return author.getPosts();
     },
     fortune() {
       return FortuneCookie.getOne();
     }
   },
   Post: {
-    author(post){
+    mongoAuthor(post){
       return Authors.findOne({
         _id: post.authorId
       }, {
@@ -39,6 +60,9 @@ const resolvers = {
           'lastName': 1
         }
       });
+    },
+    sqlAuthor(post) {
+      return post.getAuthor();
     },
     fortune() {
       return FortuneCookie.getOne();
