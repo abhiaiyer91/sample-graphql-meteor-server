@@ -5,7 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "apollo-client": "^0.1.1",
+    "apollo-client": "^0.3.0",
     "cls-bluebird": "^1.0.1",
     "continuation-local-storage": "^3.1.7",
     "express": "^4.13.4",
@@ -15,10 +15,10 @@
     "invariant": "^2.2.1",
     "meteor-node-stubs": "~0.2.0",
     "mysql": "^2.10.2",
-    "react": "^15.0.1",
-    "react-addons-pure-render-mixin": "^15.0.1",
-    "react-apollo": "^0.1.1",
-    "react-dom": "^15.0.1",
+    "react": "^15.0.2",
+    "react-addons-pure-render-mixin": "^15.0.2",
+    "react-apollo": "^0.3.1",
+    "react-dom": "^15.0.2",
     "sequelize": "^3.21.0"
   }
 }

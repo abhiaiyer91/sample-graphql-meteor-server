@@ -27,7 +27,7 @@ const AppWithData = connect({
   mapQueriesToProps() {
     return {
       postsData: {
-        query: `
+        query: gql`
             {
               mongoPosts {
                 title
