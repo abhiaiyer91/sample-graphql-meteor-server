@@ -4,18 +4,26 @@ import { Meteor } from 'meteor/meteor';
 
 
 function App({ postsData }) {
-  const { result } = postsData;
+  const { mongoPosts, loading } = postsData;
+
   return (
     <div className="container-main">
       <h1> Fortune Cookie </h1>
+
       <div className="flex-grid">
-        {result && result.mongoPosts.map(({fortune}, index) => {
-          return (
-            <div key={index} className="container-centered grit">
-              <p>"{fortune}"</p>
-            </div>
-          );
-        })}
+        {loading ?
+          <div>Loading</div>
+        :
+          <div>
+            {mongoPosts && mongoPosts.map(({fortune}, index) => {
+              return (
+                <div key={index} className="container-centered grit">
+                  <p>"{fortune}"</p>
+                </div>
+              );
+            })}
+          </div>
+        }
       </div>
     </div>
   )
